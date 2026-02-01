@@ -25,8 +25,8 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Verify branch `001-worktree-detection` exists and is checked out
-- [ ] T002 Verify `.specify/memory/` directory exists (created by existing init process)
+- [X] T001 Verify branch `001-worktree-detection` exists and is checked out
+- [X] T002 Verify `.specify/memory/` directory exists (created by existing init process)
 
 ---
 
@@ -36,14 +36,14 @@
 
 **⚠️ CRITICAL**: All user stories depend on these foundational functions
 
-- [ ] T003 [P] Add `GitEnvironment` dataclass to src/specify_cli/__init__.py (fields: is_repo, is_worktree, is_bare, suggested_mode)
-- [ ] T004 [P] Add `is_git_worktree()` function to src/specify_cli/__init__.py (uses `git worktree list | grep`)
-- [ ] T005 [P] Add `is_bare_repo()` function to src/specify_cli/__init__.py (uses `git rev-parse --is-bare-repository`)
-- [ ] T006 Add `detect_git_environment()` function to src/specify_cli/__init__.py (combines all detections, returns GitEnvironment)
-- [ ] T007 [P] Add `get_config_path()` helper function to src/specify_cli/__init__.py (returns `.specify/memory/config.json` path)
-- [ ] T008 [P] Add `load_config()` function to src/specify_cli/__init__.py (reads and validates JSON config)
-- [ ] T009 [P] Add `save_config()` function to src/specify_cli/__init__.py (writes JSON config with validation)
-- [ ] T010 [P] Add `validate_config()` function to src/specify_cli/__init__.py (validates config structure and required fields per contracts/config-schema.json)
+- [X] T003 [P] Add `GitEnvironment` dataclass to src/specify_cli/__init__.py (fields: is_repo, is_worktree, is_bare, suggested_mode)
+- [X] T004 [P] Add `is_git_worktree()` function to src/specify_cli/__init__.py (uses `git worktree list | grep`)
+- [X] T005 [P] Add `is_bare_repo()` function to src/specify_cli/__init__.py (uses `git rev-parse --is-bare-repository`)
+- [X] T006 Add `detect_git_environment()` function to src/specify_cli/__init__.py (combines all detections, returns GitEnvironment)
+- [X] T007 [P] Add `get_config_path()` helper function to src/specify_cli/__init__.py (returns `.specify/memory/config.json` path)
+- [X] T008 [P] Add `load_config()` function to src/specify_cli/__init__.py (reads and validates JSON config)
+- [X] T009 [P] Add `save_config()` function to src/specify_cli/__init__.py (writes JSON config with validation)
+- [X] T010 [P] Add `validate_config()` function to src/specify_cli/__init__.py (validates config structure and required fields per contracts/config-schema.json)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -63,14 +63,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T011 [US1] Modify `init()` command in src/specify_cli/__init__.py to call `detect_git_environment()` before template download
-- [ ] T012 [US1] Add mode detection display logic in src/specify_cli/__init__.py `init()` to show "Detected: [environment]" message
-- [ ] T013 [US1] Add mode selection prompt in src/specify_cli/__init__.py `init()` using Rich Prompt (suggest detected mode, allow override)
-- [ ] T014 [US1] Add worktree folder prompt in src/specify_cli/__init__.py `init()` when mode=worktree (default: "./worktrees")
-- [ ] T015 [US1] Add non-bare repository warning in src/specify_cli/__init__.py `init()` when worktree mode selected in non-bare repo (FR-016)
-- [ ] T016 [US1] Add config creation logic in src/specify_cli/__init__.py `init()` after template extraction (calls `save_config()` with user selections)
-- [ ] T017 [US1] Add config validation in src/specify_cli/__init__.py `init()` to verify saved config matches schema
-- [ ] T018 [US1] Add error handling in src/specify_cli/__init__.py for mode=none scenario (skip Git operations gracefully)
+- [X] T011 [US1] Modify `init()` command in src/specify_cli/__init__.py to call `detect_git_environment()` before template download
+- [X] T012 [US1] Add mode detection display logic in src/specify_cli/__init__.py `init()` to show "Detected: [environment]" message
+- [X] T013 [US1] Add mode selection prompt in src/specify_cli/__init__.py `init()` using Rich Prompt (suggest detected mode, allow override)
+- [X] T014 [US1] Add worktree folder prompt in src/specify_cli/__init__.py `init()` when mode=worktree (default: "./worktrees")
+- [X] T015 [US1] Add non-bare repository warning in src/specify_cli/__init__.py `init()` when worktree mode selected in non-bare repo (FR-016)
+- [X] T016 [US1] Add config creation logic in src/specify_cli/__init__.py `init()` after template extraction (calls `save_config()` with user selections)
+- [X] T017 [US1] Add config validation in src/specify_cli/__init__.py `init()` to verify saved config matches schema
+- [X] T018 [US1] Add error handling in src/specify_cli/__init__.py for mode=none scenario (skip Git operations gracefully)
 
 **Checkpoint**: User Story 1 complete - initialization creates config, mode selection works, config persisted correctly
 
@@ -90,11 +90,11 @@
 
 ### Implementation for User Story 2
 
-- [ ] T019 [P] [US2] Add `get_current_mode()` helper function to src/specify_cli/__init__.py (reads config, returns mode with fallback to "branch")
-- [ ] T020 [P] [US2] Add mode indicator logging to src/specify_cli/__init__.py in relevant commands (displays "Worktree mode active", "Branch mode active", or "No Git mode")
-- [ ] T021 [US2] Add backward compatibility check to src/specify_cli/__init__.py for missing config (treat as "branch" mode with warning)
-- [ ] T022 [US2] Add error messages to src/specify_cli/__init__.py for malformed config (display config path and validation errors)
-- [ ] T023 [US2] Update Git operation wrappers in src/specify_cli/__init__.py to respect mode from config (skip Git ops when mode=none)
+- [X] T019 [P] [US2] Add `get_current_mode()` helper function to src/specify_cli/__init__.py (reads config, returns mode with fallback to "branch")
+- [X] T020 [P] [US2] Add mode indicator logging to src/specify_cli/__init__.py in relevant commands (displays "Worktree mode active", "Branch mode active", or "No Git mode")
+- [X] T021 [US2] Add backward compatibility check to src/specify_cli/__init__.py for missing config (treat as "branch" mode with warning)
+- [X] T022 [US2] Add error messages to src/specify_cli/__init__.py for malformed config (display config path and validation errors)
+- [X] T023 [US2] Update Git operation wrappers in src/specify_cli/__init__.py to respect mode from config (skip Git ops when mode=none)
 
 **Checkpoint**: User Story 2 complete - detection works in all environments, mode indicators appear, missing/invalid config handled gracefully
 
@@ -115,16 +115,16 @@
 
 ### Implementation for User Story 3
 
-- [ ] T024 [P] [US3] Add JSON config reading to scripts/bash/create-new-feature.sh (parse source_management_flow and worktree_folder using grep/sed)
-- [ ] T025 [P] [US3] Add JSON config reading to scripts/powershell/create-new-feature.ps1 (parse using ConvertFrom-Json)
-- [ ] T026 [US3] Add mode branching logic to scripts/bash/create-new-feature.sh (if mode=worktree, use `git worktree add`, else use `git checkout -b`)
-- [ ] T027 [US3] Add mode branching logic to scripts/powershell/create-new-feature.ps1 (if mode=worktree, use `git worktree add`, else use `git checkout -b`)
-- [ ] T028 [P] [US3] Add worktree folder existence check to scripts/bash/create-new-feature.sh (FR-015)
-- [ ] T029 [P] [US3] Add worktree folder existence check to scripts/powershell/create-new-feature.ps1 (FR-015)
-- [ ] T030 [US3] Add missing folder creation prompt to scripts/bash/create-new-feature.sh (FR-015a - ask permission before creating)
-- [ ] T031 [US3] Add missing folder creation prompt to scripts/powershell/create-new-feature.ps1 (FR-015a - ask permission before creating)
-- [ ] T032 [P] [US3] Add permission error handling to scripts/bash/create-new-feature.sh (FR-015b - clear error if folder not writable)
-- [ ] T033 [P] [US3] Add permission error handling to scripts/powershell/create-new-feature.ps1 (FR-015b - clear error if folder not writable)
+- [X] T024 [P] [US3] Add JSON config reading to scripts/bash/create-new-feature.sh (parse source_management_flow and worktree_folder using grep/sed)
+- [X] T025 [P] [US3] Add JSON config reading to scripts/powershell/create-new-feature.ps1 (parse using ConvertFrom-Json)
+- [X] T026 [US3] Add mode branching logic to scripts/bash/create-new-feature.sh (if mode=worktree, use `git worktree add`, else use `git checkout -b`)
+- [X] T027 [US3] Add mode branching logic to scripts/powershell/create-new-feature.ps1 (if mode=worktree, use `git worktree add`, else use `git checkout -b`)
+- [X] T028 [P] [US3] Add worktree folder existence check to scripts/bash/create-new-feature.sh (FR-015)
+- [X] T029 [P] [US3] Add worktree folder existence check to scripts/powershell/create-new-feature.ps1 (FR-015)
+- [X] T030 [US3] Add missing folder creation prompt to scripts/bash/create-new-feature.sh (FR-015a - ask permission before creating)
+- [X] T031 [US3] Add missing folder creation prompt to scripts/powershell/create-new-feature.ps1 (FR-015a - ask permission before creating)
+- [X] T032 [P] [US3] Add permission error handling to scripts/bash/create-new-feature.sh (FR-015b - clear error if folder not writable)
+- [X] T033 [P] [US3] Add permission error handling to scripts/powershell/create-new-feature.ps1 (FR-015b - clear error if folder not writable)
 
 **Checkpoint**: User Story 3 complete - worktree creation works in bash and PowerShell, folder validation complete, prompts functional
 
@@ -143,11 +143,11 @@
 
 ### Implementation for User Story 4
 
-- [ ] T034 [P] [US4] Locate `check_feature_branch()` function in scripts/bash/common.sh (line 65) and verify worktree detection needs
-- [ ] T035 [US4] Add worktree detection to validation logic (check if current directory is worktree)
-- [ ] T036 [US4] Add worktree/branch name alignment validation (extract directory name and branch name, compare)
-- [ ] T037 [US4] Add mismatch warning messages (display clear warning when names don't align)
-- [ ] T038 [US4] Add success confirmation messages (indicate validation passed when names align)
+- [X] T034 [P] [US4] Locate `check_feature_branch()` function in scripts/bash/common.sh (line 65) and verify worktree detection needs
+- [X] T035 [US4] Add worktree detection to validation logic (check if current directory is worktree)
+- [X] T036 [US4] Add worktree/branch name alignment validation (extract directory name and branch name, compare)
+- [X] T037 [US4] Add mismatch warning messages (display clear warning when names don't align)
+- [X] T038 [US4] Add success confirmation messages (indicate validation passed when names align)
 
 **Checkpoint**: User Story 4 complete - validation catches mismatches, warnings clear and actionable
 
@@ -165,11 +165,11 @@
 
 ### Implementation for User Story 5
 
-- [ ] T039 [P] [US5] Add mode indicator to feature creation output in scripts/bash/create-new-feature.sh
-- [ ] T040 [P] [US5] Add mode indicator to feature creation output in scripts/powershell/create-new-feature.ps1
-- [ ] T041 [P] [US5] Add mode indicator to Git operation logging in src/specify_cli/__init__.py (any functions that call Git)
-- [ ] T042 [US5] Standardize mode indicator format across all output (consistent wording: "Worktree mode active", "Branch mode active", "No Git mode")
-- [ ] T043 [US5] Add mode indicator to init completion message in src/specify_cli/__init__.py `init()`
+- [X] T039 [P] [US5] Add mode indicator to feature creation output in scripts/bash/create-new-feature.sh
+- [X] T040 [P] [US5] Add mode indicator to feature creation output in scripts/powershell/create-new-feature.ps1
+- [X] T041 [P] [US5] Add mode indicator to Git operation logging in src/specify_cli/__init__.py (any functions that call Git)
+- [X] T042 [US5] Standardize mode indicator format across all output (consistent wording: "Worktree mode active", "Branch mode active", "No Git mode")
+- [X] T043 [US5] Add mode indicator to init completion message in src/specify_cli/__init__.py `init()`
 
 **Checkpoint**: User Story 5 complete - mode indicators consistent across all commands
 
@@ -179,14 +179,14 @@
 
 **Purpose**: Documentation, cleanup, and final validation
 
-- [ ] T044 [P] Update main README.md with worktree mode documentation section
-- [ ] T045 [P] Update CHANGELOG.md with feature 001 entry
-- [ ] T046 [P] Verify all acceptance scenarios from spec.md against implementation
-- [ ] T047 Run `.specify/scripts/bash/update-agent-context.sh` to update AI agent context files
-- [ ] T048 Review code for consistency with existing Spec-Kit patterns
-- [ ] T049 Test initialization in all three modes (branch, worktree, none) manually
-- [ ] T050 Validate config.json format matches contracts/config-schema.json
-- [ ] T051 [P] Verify backward compatibility with existing projects (test in project directory without .specify/memory/config.json, verify defaults to branch mode without errors)
+- [X] T044 [P] Update main README.md with worktree mode documentation section
+- [X] T045 [P] Update CHANGELOG.md with feature 001 entry
+- [X] T046 [P] Verify all acceptance scenarios from spec.md against implementation
+- [X] T047 Run `.specify/scripts/bash/update-agent-context.sh` to update AI agent context files
+- [X] T048 Review code for consistency with existing Spec-Kit patterns
+- [X] T049 Test initialization in all three modes (branch, worktree, none) manually
+- [X] T050 Validate config.json format matches contracts/config-schema.json
+- [X] T051 [P] Verify backward compatibility with existing projects (test in project directory without .specify/memory/config.json, verify defaults to branch mode without errors)
 
 ---
 
