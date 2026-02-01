@@ -411,3 +411,9 @@ When adding new agents:
 ---
 
 *This documentation should be updated whenever new agents are added to maintain accuracy and completeness.*
+
+## Active Technologies
+- Python 3.11 + yper, rich, httpx, platformdirs, readchar, truststore (001-worktree-detection)
+
+## Recent Changes
+- 001-worktree-detection: Added Python 3.11 + yper, rich, httpx, platformdirs, readchar, truststore
