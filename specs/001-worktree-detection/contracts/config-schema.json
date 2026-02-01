@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Specify Source Management Configuration",
+  "description": "Configuration file controlling Git workflow mode (branch/worktree/none)",
+  "type": "object",
+  "required": ["version", "source_management_flow"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema version for future compatibility"
+    },
+    "source_management_flow": {
+      "type": "string",
+      "enum": ["branch", "worktree", "none"],
+      "description": "Source management mode: branch (traditional), worktree (isolated), none (no Git)"
+    },
+    "worktree_folder": {
+      "type": "string",
+      "description": "Path to worktrees directory (required when source_management_flow=worktree)",
+      "examples": ["./worktrees", "../worktrees", "/absolute/path/to/worktrees"]
+    }
+  },
+  "if": {
+    "properties": {
+      "source_management_flow": { "const": "worktree" }
+    }
+  },
+  "then": {
+    "required": ["worktree_folder"]
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "version": "1.0",
+      "source_management_flow": "branch"
+    },
+    {
+      "version": "1.0",
+      "source_management_flow": "worktree",
+      "worktree_folder": "./worktrees"
+    },
+    {
+      "version": "1.0",
+      "source_management_flow": "none"
+    }
+  ]
+}
